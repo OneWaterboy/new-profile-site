@@ -1,0 +1,128 @@
+/* Contact page styling that matches your homepage vibe */
+
+:root{
+  /* reuse your existing vars from main.css; these are fallbacks */
+  --bg: #ffffff;
+  --text: #111111;
+  --muted: #555555;
+  --line: rgba(0,0,0,.10);
+  --shadow: 0 12px 30px rgba(0,0,0,.18);
+  --radius: 22px;
+  --pad: clamp(18px, 4vw, 44px);
+}
+
+.contact-page{
+  min-height: calc(100vh - 64px); /* matches your fixed header offset */
+  display: grid;
+  place-items: center;
+  padding: clamp(22px, 5vw, 60px) var(--pad);
+  background: #fafafa; /* matches your site edges */
+}
+
+.contact-card{
+  width: min(720px, 100%);
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: 0 20px 50px rgba(0,0,0,.18);
+  padding: clamp(20px, 3vw, 34px);
+}
+
+.contact-header h1{
+  margin: 0 0 10px 0;
+  font-size: clamp(1.8rem, 2.6vw, 2.4rem);
+  letter-spacing: -0.02em;
+}
+
+.contact-sub{
+  margin: 0 0 22px 0;
+  color: var(--muted);
+  line-height: 1.55;
+  max-width: 60ch;
+}
+
+.field{
+  display: grid;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+label{
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+input, textarea{
+  width: 100%;
+  font: inherit;
+  color: var(--text);
+  background: #fff;
+  border: 1px solid rgba(0,0,0,.14);
+  border-radius: 14px;
+  padding: 12px 14px;
+  outline: none;
+  transition: box-shadow .12s ease, border-color .12s ease, transform .12s ease;
+}
+
+textarea{
+  resize: vertical;
+  min-height: 140px;
+}
+
+input:focus, textarea:focus{
+  border-color: rgba(0,0,0,.25);
+  box-shadow: 0 0 0 4px rgba(0,0,0,.08);
+}
+
+.form-actions{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 11px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(0,0,0,.12);
+  background: #111;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform .12s ease, box-shadow .12s ease, opacity .12s ease;
+}
+
+.btn:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 12px 26px rgba(0,0,0,.16);
+}
+
+.btn:active{
+  transform: translateY(0);
+  opacity: 0.92;
+}
+
+.btn--ghost{
+  background: #fff;
+  color: #111;
+}
+
+.btn--ghost:hover{
+  box-shadow: 0 10px 22px rgba(0,0,0,.10);
+}
+
+@media (max-width: 860px){
+  .contact-page{
+    padding: 26px 18px 48px;
+  }
+
+  .contact-card{
+    border-radius: 18px;
+    padding: 18px;
+  }
+}

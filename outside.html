@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Abrahm Rollins</title>
+
+  <!-- Site styles -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/menu.css">
+  <link rel="stylesheet" href="css/outside.css">
+
+  <!-- Navigation JS -->
+  <script src="js/main.js" defer></script>
+</head>
+
+<body>
+
+  <!-- Header / Nav goes here -->
+  <header class="site-header">
+    <nav class="nav">
+      <a class="nav__brand" href="home.html" aria-label="Home">
+        <img src="images/ar-logo-circle.svg" alt="AR logo" class="nav__logo">
+      </a>
+
+      <button class="nav__toggle" type="button"
+        aria-expanded="false"
+        aria-controls="navMenu">
+        <span class="sr-only">Open menu</span>
+        ☰
+      </button>
+
+      <div class="nav__menu" id="navMenu">
+       <a class="nav__link" href="home.html">Home</a>
+            <!-- <a class="nav__link" href="focus.html">Focus</a> -->
+            <a class="nav__link" href="outside.html">Outside of Work</a>
+            <!-- <a class="nav__cta" href="contact.html">Contact</a> -->
+      </div>
+    </nav>
+  </header>
+
+  <main class="page outside">
+
+  <!-- HERO -->
+  <section class="outside-hero">
+    <div class="outside-hero__content">
+      <p class="eyebrow">Outside of Work</p>
+      <h1>Climbing & trail running — the same planning mindset, just in the mountains.</h1>
+      <p class="lede">
+        I’m drawn to objectives where conditions change fast and decisions matter.
+        The same habits that keep teams and inventory systems stable—planning, verification, and fast adjustments—
+        show up in how I approach weather, trail conditions, transportation, and gear/food planning.
+      </p>
+    </div>
+
+    <div class="outside-hero__visual" aria-hidden="true">
+      <div class="hero-card">
+        <div class="hero-card__top">
+          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        </div>
+        <div class="hero-card__body">
+          <p class="mini-title">Mountain planning looks like:</p>
+          <ul class="mini-list">
+            <li><strong>Forecast</strong> → lead time + risk</li>
+            <li><strong>Conditions</strong> → constraints</li>
+            <li><strong>Gear/Food</strong> → inventory</li>
+            <li><strong>Route timing</strong> → capacity</li>
+            <li><strong>Fallback plans</strong> → resilience</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHOTO STRIP (polaroid scatter) -->
+  <section class="photo-strip" aria-label="Highlights">
+    <figure class="polaroid tilt-1">
+      <img src="images/outside-work/2227_019024.jpg" alt="Abrahm running a trail race">
+      <figcaption>Flow + pacing</figcaption>
+    </figure>
+
+    <figure class="polaroid tilt-2">
+      <img src="images/outside-work/DSC02069.JPG" alt="Abrahm on a climbing route">
+      <figcaption>Risk + execution</figcaption>
+    </figure>
+
+    <figure class="polaroid tilt-3">
+      <img src="images/outside-work/PXL_20240810_230143288.jpg" alt="Mountain view at sunrise">
+      <figcaption>Timing + weather windows</figcaption>
+    </figure>
+
+    <figure class="polaroid tilt-4">
+      <img src="images/outside-work/climbing-gear.jpg" alt="Gear laid out before a trip">
+      <figcaption>Inventory + prep</figcaption>
+    </figure>
+  </section>
+
+  <!-- CONCEPT BLOCKS -->
+  <section class="concepts">
+    <article class="concept">
+      <h2>Climbing = planning under uncertainty</h2>
+      <p>
+        Weather windows, route conditions, and objective hazards are real constraints.
+        I like translating messy, changing information into a plan that’s safe, efficient, and adaptable.
+      </p>
+
+      <div class="concept__grid">
+        <div class="concept__item">
+          <h3>Lead time</h3>
+          <p>Forecasts, daylight, and turnaround times are the equivalent of upstream supply constraints.</p>
+        </div>
+        <div class="concept__item">
+          <h3>Controls</h3>
+          <p>Checks at key points: gear verification, route finding, partner communication, and conservative go/no-go criteria.</p>
+        </div>
+        <div class="concept__item">
+          <h3>Failure modes</h3>
+          <p>“What could break?” is the same question in a warehouse: access, weather, fatigue, equipment, timing.</p>
+        </div>
+        <div class="concept__item">
+          <h3>Execution</h3>
+          <p>Move deliberately, stay organized, and keep the plan simple enough to run when things change.</p>
+        </div>
+      </div>
+    </article>
+
+    <article class="concept">
+      <h2>Trail running = flow, capacity, and consistency</h2>
+      <p>
+        Trail running is continuous improvement in motion—finding a sustainable pace,
+        managing effort across elevation, and adjusting to conditions without losing momentum.
+      </p>
+
+      <div class="concept__grid">
+        <div class="concept__item">
+          <h3>Throughput</h3>
+          <p>Steady movement beats surges. It’s the same logic as smooth picking/packing vs. stop-start chaos.</p>
+        </div>
+        <div class="concept__item">
+          <h3>Constraints</h3>
+          <p>Elevation, footing, and weather create bottlenecks—plan around them instead of fighting them.</p>
+        </div>
+        <div class="concept__item">
+          <h3>Feedback loops</h3>
+          <p>Heart rate, breathing, and leg fatigue are real-time dashboards: adjust early, not after it breaks.</p>
+        </div>
+        <div class="concept__item">
+          <h3>Recovery</h3>
+          <p>Durability is a system: sleep, nutrition, consistency—same as preventive maintenance.</p>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <!-- LOGISTICS / INVENTORY BRIDGE -->
+  <section class="bridge">
+    <div class="bridge__left">
+      <h2>How I connect it back to logistics & inventory</h2>
+      <p class="lede">
+        The mountains are a small, personal version of operations: limited resources, changing conditions,
+        and a strong need for accuracy. I treat outdoor planning like a lightweight supply chain.
+      </p>
+
+      <div class="bridge__cards">
+        <div class="bridge-card">
+          <h3>Weather logistics</h3>
+          <p>Lead times, “windows,” risk thresholds, and contingency routes—like planning around supplier variability.</p>
+        </div>
+        <div class="bridge-card">
+          <h3>Trail conditions</h3>
+          <p>Surface, snow, and visibility become constraints that shift the plan, timing, and required equipment.</p>
+        </div>
+        <div class="bridge-card">
+          <h3>Transportation</h3>
+          <p>Parking, access roads, shuttle timing, and turnaround targets—simple routing and timeboxing.</p>
+        </div>
+        <div class="bridge-card">
+          <h3>Gear + food inventory</h3>
+          <p>Pack lists, redundancy where it matters, weight vs. utility tradeoffs, and “minimum viable kit.”</p>
+        </div>
+      </div>
+    </div>
+
+    <aside class="checklist" aria-label="Sample planning checklist">
+      <h3>My quick planning checklist</h3>
+
+      <div class="checklist__group">
+        <p class="checklist__title">Conditions</p>
+        <ul>
+          <li>Forecast + hourly wind/precip</li>
+          <li>Freezing level / snowline (seasonal)</li>
+          <li>Trail status + recent reports</li>
+        </ul>
+      </div>
+
+      <div class="checklist__group">
+        <p class="checklist__title">Timing</p>
+        <ul>
+          <li>Start time + turnaround time</li>
+          <li>Daylight buffer</li>
+          <li>Pace targets for key segments</li>
+        </ul>
+      </div>
+
+      <div class="checklist__group">
+        <p class="checklist__title">Inventory (gear/food)</p>
+        <ul>
+          <li>Critical gear verified (not assumed)</li>
+          <li>Fuel + water plan</li>
+          <li>The 10 essentials</li>
+        </ul>
+      </div>
+
+      <div class="checklist__group">
+        <p class="checklist__title">Controls</p>
+        <ul>
+          <li>Buddy check + communication plan</li>
+          <li>Route notes + bailout option</li>
+          <li>“Stop rules” if conditions shift</li>
+        </ul>
+      </div>
+    </aside>
+  </section>
+</main>

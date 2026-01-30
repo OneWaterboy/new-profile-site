@@ -1,0 +1,318 @@
+
+    :root{
+      --bg: #ffffff;
+      --text: #111111;
+      --muted: #555555;
+      --line: rgba(0,0,0,.10);
+      --shadow: 0 12px 30px rgba(0,0,0,.18);
+      --radius: 22px;
+      --max: 1100px;
+      --pad: clamp(18px, 4vw, 44px);
+      --rightPad: clamp(22px, 4vw, 54px);
+    }
+
+    /* Ubuntu font family */
+
+@font-face {
+  font-family: "Ubuntu";
+  src: url("../fonts/Ubuntu-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Ubuntu";
+  src: url("../fonts/Ubuntu-LightItalic.ttf") format("truetype");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Ubuntu";
+  src: url("../fonts/Ubuntu-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Ubuntu";
+  src: url("../fonts/Ubuntu-Italic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Ubuntu";
+  src: url("../fonts/Ubuntu-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Ubuntu";
+  src: url("../fonts/Ubuntu-MediumItalic.ttf") format("truetype");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Ubuntu";
+  src: url("../fonts/Ubuntu-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Ubuntu";
+  src: url("../fonts/Ubuntu-BoldItalic.ttf") format("truetype");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body{
+      margin: 0;
+      font-family: "Ubuntu", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color: var(--text);
+      background: #0b0f14; /* fallback around the edges */
+      overflow-x: hidden;
+    }
+
+    /* Layout */
+    .page{
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      background: var(--bg);
+    }
+
+    /* LEFT SIDE (background + profile image) */
+    .left{
+      position: relative;
+      min-height: 100vh;
+      overflow: hidden;
+      display: grid;
+    align-items: center;     /* vertical centering */
+    justify-items: start;    /* left align */
+    padding-left: clamp(32px, 6vw, 80px);
+      padding: var(--pad);
+      background: #0b0f14;
+      isolation: isolate;
+    }
+
+    .left::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background: url("../images/IMG_0841.jpg");
+      background-size: cover;
+      background-position: center;
+      transform: scale(1.04);
+      z-index: -2;
+    }
+
+    .left::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background: radial-gradient(900px 500px at 50% 10%, rgba(255,255,255,.10), transparent 60%);
+      z-index: -1;
+      pointer-events:none;
+    }
+
+    .profile-wrap{
+      width: min(330px, 70vw);
+      aspect-ratio: 1 / 1;
+      border-radius: 999px;
+      padding: 10px;
+      background: rgba(255,255,255,.18);
+      backdrop-filter: blur(10px);
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(255,255,255,.22);
+      display: grid;
+      place-items: center;
+    }
+
+    .profile{
+      width: 100%;
+      height: 100%;
+      border-radius: 999px;
+      object-fit: cover;
+      border: 2px solid rgba(255,255,255,.45);
+      display: block;
+      background: rgba(255,255,255,.08);
+    }
+
+    /* RIGHT SIDE (intro + links) */
+    .right{
+      min-height: 100vh;
+      background: var(--bg);
+      padding: var(--rightPad);
+      display: grid;
+      align-content: center;
+    }
+
+    .content{
+      max-width: var(--max);
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    h1{
+      margin: 0 0 10px 0;
+      font-size: clamp(2rem, 3.2vw, 3rem);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+    }
+
+    .headline-sub{
+      margin: 0 0 22px 0;
+      font-size: clamp(1.05rem, 1.4vw, 1.25rem);
+      color: var(--muted);
+      line-height: 1.5;
+      max-width: 46ch;
+    }
+
+    .divider{
+      height: 1px;
+      width: 100%;
+      background: var(--line);
+      margin: 22px 0;
+    }
+
+    .intro{
+      margin: 0 0 22px 0;
+      font-size: 1.02rem;
+      line-height: 1.65;
+      color: #1c1c1c;
+      max-width: 65ch;
+    }
+
+    .links{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .pill{
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      text-decoration: none;
+      color: var(--text);
+      background: #fff;
+      transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease;
+      font-size: 0.98rem;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .pill:hover{
+      transform: translateY(-1px);
+      box-shadow: 0 10px 22px rgba(0,0,0,.10);
+      border-color: rgba(0,0,0,.18);
+    }
+
+    .pill:focus{
+      outline: 3px solid rgba(0,0,0,.20);
+      outline-offset: 2px;
+    }
+
+    .icon{
+      width: 18px;
+      height: 18px;
+      display: inline-block;
+      flex: 0 0 18px;
+    }
+
+    .small-note{
+      margin-top: 16px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .scroll-cue {
+      display: none;
+    }
+
+    /* MOBILE STACKING */
+    @media (max-width: 860px){
+
+      .profile-wrap{
+        width: min(160px, 45vw); /* ~half size */
+      }
+
+    .left {
+        justify-items: center;
+        padding-left: 22px; /* or whatever you already use */
+        }
+      .page{
+        grid-template-columns: 1fr;
+      }
+
+      .scroll-cue {
+        display: inline-flex;
+    }
+
+      .left{
+        min-height: 54vh;
+        padding: 22px;
+      }
+
+      .left::before {
+        background:
+        linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.55)),
+        url("../images/IMG_0841.jpg");
+        background-size: cover;
+        background-position: center;
+    }
+
+      .right{
+        min-height: auto;
+        padding: 26px 22px 42px;
+      }
+
+      /* Make it obvious there is content below the profile image */
+      .scroll-cue{
+        position: absolute;
+        left: 50%;
+        bottom: 14px;
+        transform: translateX(-50%);
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 14px;
+        border-radius: 999px;
+        background: rgba(0,0,0,.35);
+        color: rgba(255,255,255,.95);
+        border: 1px solid rgba(255,255,255,.22);
+        backdrop-filter: blur(10px);
+        font-size: 0.95rem;
+        user-select: none;
+      }
+
+      .scroll-cue svg{
+        width: 18px;
+        height: 18px;
+        animation: bob 1.3s ease-in-out infinite;
+      }
+
+      @keyframes bob{
+        0%, 100% { transform: translateY(0); }
+        50%      { transform: translateY(4px); }
+      }
+    }
