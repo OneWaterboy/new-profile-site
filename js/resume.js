@@ -1,9 +1,25 @@
+const resumeSummaries = {
+  broad: "Inventory and operations professional with experience spanning shipping and receiving, inventory control, warehouse operations, replenishment planning, and e-commerce systems support.",
+  shipping: "Shipping and receiving experience centered on inbound flow, documentation verification, staging, freight handling, and coordination across warehouse and field operations.",
+  inventory: "Inventory-focused experience in stock accuracy, reconciliation, cycle counts, discrepancy resolution, replenishment support, and inventory data integrity across physical and digital systems.",
+  warehouse: "Warehouse operations experience supporting receiving, staging, fulfillment flow, picking efficiency, material movement, and safe, organized day-to-day execution.",
+  leadership: "Hands-on team lead experience directing workflows, training staff, improving process consistency, and supporting safe, efficient operations across fast-paced environments.",
+  systems: "Systems-oriented experience supporting e-commerce operations, inventory data accuracy, reporting, backend workflows, and platform integrations across storefront and operational tools."
+};
+
 const resumeData = [
   {
     company: "Kingz Container Crew",
     title: "Inventory Control Clerk / Team Lead",
     dates: "2025 – Present",
     theme: "forest",
+    keySkills: [
+      { text: "Container Receiving", tags: ["broad", "shipping"] },
+      { text: "Inventory Reconciliation", tags: ["broad", "inventory"] },
+      { text: "Warehouse Staging", tags: ["broad", "warehouse"] },
+      { text: "Team Leadership", tags: ["broad", "leadership"] },
+      { text: "Forklift & Clamp Truck Operation", tags: ["broad", "shipping", "warehouse"] }
+    ],
     bullets: [
       { text: "Supervised inbound container receiving and unloading operations, leading teams of up to 8 staff in high-volume environments", tags: ["broad", "shipping", "warehouse", "leadership"] },
       { text: "Verified shipment contents against manifests and purchase orders, ensuring accurate receipt and resolving discrepancies", tags: ["broad", "shipping", "inventory"] },
@@ -30,6 +46,13 @@ const resumeData = [
     title: "Inventory Clerk (Contract)",
     dates: "2024 – 2025",
     theme: "graphite",
+    keySkills: [
+      { text: "Purchase Order Reconciliation", tags: ["broad", "shipping", "inventory"] },
+      { text: "Inventory Tracking", tags: ["broad", "inventory"] },
+      { text: "Material Allocation", tags: ["broad", "shipping", "inventory"] },
+      { text: "Warehouse Organization", tags: ["broad", "warehouse"] },
+      { text: "Cross-Functional Coordination", tags: ["broad", "leadership"] }
+    ],
     bullets: [
       { text: "Maintained accurate inventory of parts, tools, and materials to support daily operations and field service teams", tags: ["broad", "inventory"] },
       { text: "Processed incoming shipments and reconciled received goods against purchase orders to ensure inventory accuracy", tags: ["broad", "inventory", "shipping"] },
@@ -55,6 +78,13 @@ const resumeData = [
     title: "E-commerce Systems & Inventory Operations",
     dates: "2021 – 2025",
     theme: "alpine",
+    keySkills: [
+      { text: "Shopify Operations", tags: ["broad", "systems"] },
+      { text: "Inventory Data Accuracy", tags: ["broad", "inventory", "systems"] },
+      { text: "System Integrations", tags: ["broad", "systems"] },
+      { text: "Reporting & Data Validation", tags: ["broad", "systems"] },
+      { text: "Shipping Platform Coordination", tags: ["broad", "systems", "shipping"] }
+    ],
     bullets: [
       { text: "Managed product, SKU, and inventory data across e-commerce platforms to ensure accurate listings and stock visibility", tags: ["broad", "inventory", "systems"] },
       { text: "Maintained alignment between storefront inventory and backend systems, reducing discrepancies and improving fulfillment accuracy", tags: ["broad", "inventory", "systems"] },
@@ -81,6 +111,13 @@ const resumeData = [
     title: "Inventory Planner",
     dates: "2019 – 2020",
     theme: "alpine",
+    keySkills: [
+      { text: "Replenishment Planning", tags: ["broad", "inventory"] },
+      { text: "Excel Inventory Analysis", tags: ["broad", "inventory", "systems"] },
+      { text: "Shipment Tracking", tags: ["broad", "shipping"] },
+      { text: "Cross-Functional Planning", tags: ["broad", "leadership", "inventory"] },
+      { text: "Inventory Reporting", tags: ["broad", "systems"] }
+    ],
     bullets: [
       { text: "Managed inventory tracking and replenishment across 13 retail locations, ensuring consistent product availability and minimizing stockouts", tags: ["broad", "inventory"] },
       { text: "Used Excel (pivot tables, lookups) to analyze inventory levels, identify shortages, and support data-driven replenishment decisions", tags: ["broad", "inventory", "systems"] },
@@ -104,6 +141,13 @@ const resumeData = [
     title: "Warehouse / Inventory Operations",
     dates: "2017 – 2019",
     theme: "graphite",
+    keySkills: [
+      { text: "Warehouse Operations", tags: ["broad", "warehouse"] },
+      { text: "Cycle Counts", tags: ["broad", "inventory"] },
+      { text: "Picking Efficiency", tags: ["broad", "warehouse"] },
+      { text: "Order Fulfillment Support", tags: ["broad", "shipping", "warehouse"] },
+      { text: "Team Training", tags: ["broad", "leadership"] }
+    ],
     bullets: [
       { text: "Coordinated daily warehouse operations to support efficient order fulfillment and material flow", tags: ["broad", "warehouse"] },
       { text: "Organized warehouse layout and staging areas to improve picking efficiency and reduce handling time", tags: ["broad", "warehouse", "inventory"] },
@@ -127,6 +171,7 @@ const resumeData = [
 
 const resumeList = document.getElementById("resumeList");
 const filterButtons = document.querySelectorAll(".resume-filter");
+const resumeSummary = document.getElementById("resumeSummary");
 
 function getURLFilter() {
   const params = new URLSearchParams(window.location.search);
@@ -150,18 +195,33 @@ function setURLFilter(filter) {
   window.history.replaceState({}, "", newURL);
 }
 
-function getBulletsForFilter(job, filter) {
+function getItemsForFilter(items, filter) {
+  if (!items) return [];
+
   if (filter === "broad") {
-    return job.bullets.filter((bullet) => bullet.tags.includes("broad"));
+    return items.filter((item) => item.tags.includes("broad"));
   }
 
-  const matched = job.bullets.filter((bullet) => bullet.tags.includes(filter));
+  const matched = items.filter((item) => item.tags.includes(filter));
 
   if (matched.length > 0) {
     return matched;
   }
 
-  return job.bullets.filter((bullet) => bullet.tags.includes("broad")).slice(0, 2);
+  return items.filter((item) => item.tags.includes("broad")).slice(0, 3);
+}
+
+function getBulletsForFilter(job, filter) {
+  return getItemsForFilter(job.bullets, filter);
+}
+
+function getSkillsForFilter(job, filter) {
+  return getItemsForFilter(job.keySkills, filter);
+}
+
+function renderSummary(filter = "broad") {
+  if (!resumeSummary) return;
+  resumeSummary.textContent = resumeSummaries[filter] || resumeSummaries.broad;
 }
 
 function renderResume(filter = "broad") {
@@ -174,6 +234,7 @@ function renderResume(filter = "broad") {
 
   resumeData.forEach((job) => {
     const bullets = getBulletsForFilter(job, filter);
+    const skills = getSkillsForFilter(job, filter);
 
     const article = document.createElement("article");
     article.className = `resume-job resume-job--${job.theme}`;
@@ -183,6 +244,13 @@ function renderResume(filter = "broad") {
         <h2 class="resume-job__company">${job.company}</h2>
         <p class="resume-job__title">${job.title}</p>
         <div class="resume-job__dates">${job.dates}</div>
+
+        <div class="resume-job__skills">
+          <h3 class="resume-job__skills-title">Key Skills</h3>
+          <ul class="resume-job__skill-list">
+            ${skills.map((skill) => `<li class="resume-job__skill">${skill.text}</li>`).join("")}
+          </ul>
+        </div>
       </div>
 
       <div class="resume-job__content">
@@ -207,10 +275,12 @@ filterButtons.forEach((button) => {
     const filter = button.dataset.filter;
     setActiveButton(filter);
     setURLFilter(filter);
+    renderSummary(filter);
     renderResume(filter);
   });
 });
 
 const initialFilter = getURLFilter();
 setActiveButton(initialFilter);
+renderSummary(initialFilter);
 renderResume(initialFilter);
