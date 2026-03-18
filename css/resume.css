@@ -1,0 +1,194 @@
+/* resume.css */
+
+.resume-page {
+  padding: clamp(32px, 4vw, 60px) 0;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.resume-shell {
+  width: min(var(--max), calc(100% - 40px));
+  margin: 0 auto;
+}
+
+.resume-hero {
+  background: linear-gradient(
+    180deg,
+    hsl(var(--graphite) / 0.10),
+    hsl(var(--graphite) / 0.03)
+  );
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  padding: clamp(22px, 4vw, 40px);
+  margin-bottom: clamp(24px, 4vw, 42px);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.05);
+}
+
+.resume-hero h1 {
+  margin: 0 0 14px;
+  font-size: clamp(2rem, 3.8vw, 3rem);
+  line-height: 1.05;
+}
+
+.resume-filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.resume-filter {
+  appearance: none;
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--text);
+  border-radius: 999px;
+  padding: 10px 14px;
+  font: inherit;
+  font-size: 0.96rem;
+  line-height: 1;
+  cursor: pointer;
+  transition:
+    transform 0.12s ease,
+    box-shadow 0.12s ease,
+    border-color 0.12s ease,
+    background 0.12s ease;
+}
+
+.resume-filter:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.07);
+  border-color: rgba(0,0,0,0.18);
+}
+
+.resume-filter.is-active {
+  background: hsl(var(--graphite) / 0.10);
+  border-color: hsl(var(--graphite) / 0.22);
+}
+
+.resume-list {
+  display: grid;
+  gap: 18px;
+}
+
+.resume-job {
+  display: grid;
+  grid-template-columns: minmax(220px, 290px) minmax(0, 1fr);
+  gap: clamp(20px, 3vw, 34px);
+  border-radius: 24px;
+  padding: clamp(20px, 3vw, 30px);
+  border: 1px solid var(--line);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.05);
+}
+
+.resume-job--alpine {
+  background: linear-gradient(
+    180deg,
+    hsl(var(--alpine) / 0.14),
+    hsl(var(--alpine) / 0.04)
+  );
+}
+
+.resume-job--forest {
+  background: linear-gradient(
+    180deg,
+    hsl(var(--forest) / 0.14),
+    hsl(var(--forest) / 0.04)
+  );
+}
+
+.resume-job--graphite {
+  background: linear-gradient(
+    180deg,
+    hsl(var(--graphite) / 0.10),
+    hsl(var(--graphite) / 0.03)
+  );
+}
+
+.resume-job__meta {
+  align-self: start;
+}
+
+.resume-job__company {
+  margin: 0 0 8px;
+  font-size: clamp(1.1rem, 2vw, 1.35rem);
+  line-height: 1.15;
+}
+
+.resume-job__title {
+  margin: 0 0 12px;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.resume-job__dates {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.45);
+  border: 1px solid rgba(0,0,0,0.08);
+  color: var(--muted);
+  font-size: 0.93rem;
+}
+
+.resume-job__content {
+  min-width: 0;
+}
+
+.resume-job__bullets {
+  margin: 0;
+  padding-left: 1.15rem;
+}
+
+.resume-job__bullets li {
+  margin-bottom: 12px;
+  line-height: 1.68;
+}
+
+.resume-job__bullets li:last-child {
+  margin-bottom: 0;
+}
+
+.resume-empty {
+  padding: 18px 20px;
+  border: 1px dashed var(--line);
+  border-radius: 18px;
+  color: var(--muted);
+  background: rgba(0,0,0,0.015);
+}
+
+@media (max-width: 860px) {
+  .resume-job {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .resume-job__meta {
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+  }
+}
+
+@media (max-width: 640px) {
+  .resume-shell {
+    width: min(var(--max), calc(100% - 24px));
+  }
+
+  .resume-hero,
+  .resume-job {
+    border-radius: 22px;
+    padding: 18px;
+  }
+
+  .resume-filter-bar {
+    gap: 8px;
+  }
+
+  .resume-filter {
+    font-size: 0.92rem;
+    padding: 9px 12px;
+  }
+}

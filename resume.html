@@ -3,7 +3,7 @@
 <head>
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/menu.css">
-  <link rel="stylesheet" href="css/contact.css">
+  <link rel="stylesheet" href="css/resume.css">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Abrahm Rollins</title>
@@ -33,6 +33,33 @@
         </nav>
     </header>
 <body>
-    
+  <main class="resume-page">
+    <div class="resume-shell">
+
+      <section class="resume-hero">
+        <h1>Professional Experience</h1>
+        <p class="lede">
+          Use the filters below to tailor my resume to focus on roles such as shipping and receiving,
+          inventory control, warehouse operations, leadership, or systems.
+        </p>
+
+        <div class="resume-filter-bar" id="resumeFilters">
+          <button class="resume-filter is-active" data-filter="broad" type="button">Broad</button>
+          <button class="resume-filter" data-filter="shipping" type="button">Shipping &amp; Receiving</button>
+          <button class="resume-filter" data-filter="inventory" type="button">Inventory Control</button>
+          <button class="resume-filter" data-filter="warehouse" type="button">Warehouse Operations</button>
+          <button class="resume-filter" data-filter="leadership" type="button">Leadership</button>
+          <button class="resume-filter" data-filter="systems" type="button">E-commerce / Systems</button>
+        </div>
+      </section>
+
+      <section class="resume-list" id="resumeList">
+        <!-- JS renders jobs here -->
+      </section>
+
+    </div>
+  </main>
+
+  <script src="js/resume.js"></script>
 </body>
 </html>
