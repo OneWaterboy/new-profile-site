@@ -11,7 +11,7 @@ const resumeData = [
   {
     company: "Kingz Container Crew",
     title: "Inventory Control Clerk / Team Lead",
-    dates: "2025 – Present",
+    dates: "2025 – 2026",
     theme: "forest",
     keySkills: [
       { text: "Container Receiving", tags: ["broad", "shipping"] },
@@ -195,28 +195,69 @@ function setURLFilter(filter) {
   window.history.replaceState({}, "", newURL);
 }
 
-function getItemsForFilter(items, filter) {
-  if (!items) return [];
+function dedupeByText(items) {
+  const seen = new Set();
+  return items.filter((item) => {
+    if (seen.has(item.text)) return false;
+    seen.add(item.text);
+    return true;
+  });
+}
+
+function getItemsForFilter(items, filter, options = {}) {
+  const {
+    min = 3,
+    max = null
+  } = options;
+
+  if (!items || !items.length) return [];
+
+  const broadItems = items.filter((item) => item.tags.includes("broad"));
 
   if (filter === "broad") {
-    return items.filter((item) => item.tags.includes("broad"));
+    return max ? broadItems.slice(0, max) : broadItems;
   }
 
   const matched = items.filter((item) => item.tags.includes(filter));
 
-  if (matched.length > 0) {
-    return matched;
+  // Start with matched items first
+  let result = [...matched];
+
+  // Fill with broad items until we hit the minimum
+  if (result.length < min) {
+    const fillers = broadItems.filter(
+      (broadItem) => !result.some((item) => item.text === broadItem.text)
+    );
+
+    result = [...result, ...fillers];
   }
 
-  return items.filter((item) => item.tags.includes("broad")).slice(0, 3);
+  // Remove duplicates just in case
+  result = dedupeByText(result);
+
+  // Guarantee minimum if possible
+  if (result.length < min) {
+    const extras = items.filter(
+      (item) => !result.some((existing) => existing.text === item.text)
+    );
+    result = [...result, ...extras];
+  }
+
+  result = dedupeByText(result);
+
+  if (max) {
+    return result.slice(0, max);
+  }
+
+  return result;
 }
 
 function getBulletsForFilter(job, filter) {
-  return getItemsForFilter(job.bullets, filter);
+  return getItemsForFilter(job.bullets, filter, { min: 3 });
 }
 
 function getSkillsForFilter(job, filter) {
-  return getItemsForFilter(job.keySkills, filter);
+  return getItemsForFilter(job.keySkills, filter, { min: 3, max: 5 });
 }
 
 function renderSummary(filter = "broad") {
