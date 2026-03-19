@@ -28,3 +28,25 @@ document.addEventListener('click', (e) => {
     }
 });
 })();
+
+
+const email = "abrahmrollins@gmail.com";
+const copyBtn = document.getElementById("copyEmailBtn");
+const toast = document.getElementById("emailToast");
+
+if (copyBtn) {
+  copyBtn.addEventListener("click", async () => {
+    try {
+      await navigator.clipboard.writeText(email);
+
+      toast.classList.add("show");
+
+      setTimeout(() => {
+        toast.classList.remove("show");
+      }, 2000);
+
+    } catch (err) {
+      console.error("Copy failed", err);
+    }
+  });
+}

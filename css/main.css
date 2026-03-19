@@ -316,3 +316,24 @@
         50%      { transform: translateY(4px); }
       }
     }
+
+    .email-toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: #111;
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.25s ease;
+  z-index: 999;
+}
+
+.email-toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
