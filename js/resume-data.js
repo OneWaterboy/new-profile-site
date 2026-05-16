@@ -9,6 +9,32 @@ window.resumeSummaries = {
 
 window.resumeData = [
   {
+    company: "Precor",
+    title: "Inventory Control Analyst (12-Week Contract)",
+    dates: "April 2026 – Present · Woodinville, WA",
+    theme: "forest",
+    keySkills: [
+      { text: "Cycle Count Operations", tags: ["broad", "inventory"] },
+      { text: "SAP Inventory Transactions", tags: ["broad", "inventory", "systems"] },
+      { text: "SOX Inventory Compliance", tags: ["broad", "inventory", "systems"] },
+      { text: "Root Cause Analysis", tags: ["broad", "inventory", "leadership"] },
+      { text: "Manufacturing Inventory Flow", tags: ["broad", "warehouse", "inventory"] }
+    ],
+    bullets: [
+      { text: "Lead cycle counting operations within a manufacturing environment, consistently maintaining inventory accuracy above 99.6%", tags: ["broad", "inventory", "leadership"] },
+      { text: "Assist in modernizing company cycle count processes through SAP automation initiatives to improve efficiency, compliance, and reporting accuracy", tags: ["broad", "inventory", "systems"] },
+      { text: "Ensure compliance with SOX (Sarbanes-Oxley) inventory control requirements and audit standards", tags: ["broad", "inventory", "systems"] },
+      { text: "Investigate and resolve inventory discrepancies through root cause analysis and cross-functional collaboration", tags: ["broad", "inventory", "leadership"] },
+      { text: "Perform inventory transactions and material movements between company locations within SAP", tags: ["broad", "inventory", "systems", "warehouse"] },
+      { text: "Support production operations by managing inventory flow and material availability for manufacturing lines", tags: ["broad", "inventory", "warehouse"] },
+      { text: "Assist with inventory demand forecasting and replenishment planning to support operational continuity", tags: ["broad", "inventory", "systems"] },
+      { text: "Manage receipt and system reconciliation of inbound inventory from suppliers and internal transfers", tags: ["broad", "shipping", "inventory", "systems"] },
+      { text: "Partner with purchasing, production, warehouse, and supplier teams to resolve inventory, receiving, and supply chain issues", tags: ["broad", "shipping", "inventory", "warehouse", "leadership"] },
+      { text: "Contribute to development and refinement of inventory control SOPs and process documentation", tags: ["broad", "inventory", "leadership", "systems"] }
+    ]
+  },
+
+  {
     company: "Kingz Container Crew",
     title: "Inventory Control Clerk / Team Lead",
     dates: "2025 – 2026",
