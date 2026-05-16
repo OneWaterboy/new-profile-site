@@ -1,0 +1,234 @@
+.home-page {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: var(--bg);
+}
+
+.home-photo {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  display: grid;
+  align-items: center;
+  justify-items: start;
+  padding: var(--pad);
+  background: #0b0f14;
+  isolation: isolate;
+}
+
+.home-photo::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("../images/IMG_0841.jpg");
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.04);
+  z-index: -2;
+}
+
+.home-photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(900px 500px at 50% 10%, rgba(255, 255, 255, 0.10), transparent 60%);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.profile-wrap {
+  width: min(330px, 70vw);
+  aspect-ratio: 1 / 1;
+  border-radius: 999px;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  display: grid;
+  place-items: center;
+}
+
+.profile {
+  width: 100%;
+  height: 100%;
+  border-radius: 999px;
+  object-fit: cover;
+  border: 2px solid rgba(255, 255, 255, 0.45);
+  display: block;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.home-intro {
+  min-height: 100vh;
+  background: var(--bg);
+  padding: var(--rightPad);
+  display: grid;
+  align-content: center;
+}
+
+.home-content {
+  max-width: var(--max);
+  width: 100%;
+  margin: 0 auto;
+}
+
+.home-content h1 {
+  margin: 0 0 10px;
+  font-size: clamp(2rem, 3.2vw, 3rem);
+  line-height: 1.05;
+}
+
+.headline-sub {
+  margin: 0 0 22px;
+  font-size: clamp(1.05rem, 1.4vw, 1.25rem);
+  color: var(--muted);
+  line-height: 1.5;
+  max-width: 46ch;
+}
+
+.divider {
+  height: 1px;
+  width: 100%;
+  background: var(--line);
+  margin: 22px 0;
+}
+
+.intro {
+  margin: 0 0 22px;
+  font-size: 1.02rem;
+  line-height: 1.65;
+  color: #1c1c1c;
+  max-width: 65ch;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  text-decoration: none;
+  color: var(--text);
+  background: #fff;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.12s ease;
+  font-size: 0.98rem;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.pill:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.10);
+  border-color: rgba(0, 0, 0, 0.18);
+}
+
+.pill:focus {
+  outline: 3px solid rgba(0, 0, 0, 0.20);
+  outline-offset: 2px;
+}
+
+.icon {
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  flex: 0 0 18px;
+}
+
+.scroll-cue {
+  display: none;
+}
+
+.email-toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: #111;
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.25s ease;
+  z-index: 999;
+}
+
+.email-toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+@media (max-width: 860px) {
+  .home-page {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-wrap {
+    width: min(160px, 45vw);
+  }
+
+  .home-photo {
+    min-height: 54vh;
+    justify-items: center;
+    padding: 22px;
+  }
+
+  .home-photo::before {
+    background:
+      linear-gradient(180deg, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.55)),
+      url("../images/IMG_0841.jpg");
+    background-size: cover;
+    background-position: center;
+  }
+
+  .home-intro {
+    min-height: auto;
+    padding: 26px 22px 42px;
+  }
+
+  .scroll-cue {
+    position: absolute;
+    left: 50%;
+    bottom: 14px;
+    transform: translateX(-50%);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    border-radius: 999px;
+    background: rgba(0, 0, 0, 0.35);
+    color: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    backdrop-filter: blur(10px);
+    font-size: 0.95rem;
+    user-select: none;
+  }
+
+  .scroll-cue svg {
+    width: 18px;
+    height: 18px;
+    animation: bob 1.3s ease-in-out infinite;
+  }
+
+  @keyframes bob {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(4px);
+    }
+  }
+}

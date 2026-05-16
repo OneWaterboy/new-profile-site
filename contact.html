@@ -16,29 +16,7 @@
 
 <body>
 
-  <!-- Header / Nav goes here -->
-  <header class="site-header">
-    <nav class="nav">
-      <a class="nav__brand" href="index.html" aria-label="Home">
-        <img src="images/ar-logo-circle.svg" alt="AR logo" class="nav__logo">
-      </a>
-
-      <button class="nav__toggle" type="button"
-        aria-expanded="false"
-        aria-controls="navMenu">
-        <span class="sr-only">Open menu</span>
-        ☰
-      </button>
-
-      <div class="nav__menu" id="navMenu">
-       <a class="nav__link" href="index.html">Home</a>
-            <a class="nav__link" href="focus.html">Focus</a>
-            <a class="nav__link" href="outside.html">Outside of Work</a>
-            <a class="nav__link" href="projects.html">Projects</a>
-            <a class="nav__cta" href="contact.html">Contact</a>
-      </div>
-    </nav>
-  </header>
+  <header class="site-header" data-site-nav></header>
 
   <!-- Main content -->
   <main class="contact-page">
@@ -54,7 +32,7 @@
             method="POST"
             data-netlify="true"
             netlify-honeypot="bot-field"
-            action="/thanks">
+            action="thanks.html">
 
         <!-- Required hidden fields -->
         <input type="hidden" name="form-name" value="contact" />
@@ -82,7 +60,7 @@
           <textarea name="message" rows="6" required></textarea>
         </label>
 
-        <button type="submit">Send</button>
+        <button class="btn" type="submit">Send</button>
       </form>
 
     </section>

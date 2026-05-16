@@ -1,14 +1,5 @@
 /* outside.css */
 
-/* Section color tokens */
-:root {
-  --alpine: 210 60% 55%;     /* blue */
-  --forest: 145 45% 45%;    /* green */
-  --graphite: 220 10% 50%;  /* neutral */
-}
-
-/* Colors For Sections */
-
 .outside-hero {
   background: linear-gradient(
     180deg,
@@ -51,11 +42,13 @@
 
 
 .outside {
+  width: min(var(--max), calc(100% - 40px));
+  margin: 0 auto;
   padding: clamp(28px, 4vw, 56px) 0;
 }
 
 .outside-hero__content {
-  margin: 0 50px;
+  margin: 0;
 }
 
 
@@ -80,14 +73,6 @@
   font-size: clamp(2rem, 3.6vw, 3rem);
   line-height: 1.08;
   margin: 0 0 14px;
-}
-
-.lede {
-  font-size: 1.05rem;
-  line-height: 1.6;
-  opacity: 0.92;
-  margin: 0 0 18px;
-  max-width: 60ch;
 }
 
 .tag-row {
@@ -381,14 +366,15 @@
 }
 
 @media (max-width: 520px) {
+  .outside {
+    width: min(var(--max), calc(100% - 24px));
+  }
+
   .photo-strip {
     grid-template-columns: 1fr;
   }
 
-  .bridge__left h2 {
-  margin: 0 50px;
-}
-.lede{
-    margin: 20px 0px;
-}
+  .lede {
+    margin: 20px 0;
+  }
 }
